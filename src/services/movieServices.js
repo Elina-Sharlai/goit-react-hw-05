@@ -34,14 +34,16 @@ export const fetchSearch = async (query, page = 1) => {
             params: {
                 api_key: API_KEY,
                 language: 'en-US',
+                query: query,
                 page: page,
             },
-
         })
         .then(response => response.data)
         .catch(error => console.error(error));
     return response;
 };
+
+// fetchSearch('Inception').then(data => console.log(data));
 
 export const fetchMovieInfo = async movieId => {
     const response = await axios
